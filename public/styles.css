@@ -53,6 +53,7 @@ h1 {
     border-radius: 8px;
 }
 
+/* Screen Styles */
 #screen {
     border: black solid 2pt;
     border-radius: 8px;
@@ -68,6 +69,14 @@ h1 {
     font-weight: bold;
 }
 
+#order-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* BUTTONS */
+/* Main Styles */
 #pos-buttons-div {
     background-color: gainsboro;
     padding: 1.5em;
@@ -83,19 +92,31 @@ h1 {
     font-size: 12pt;
 }
 
-#control-buttons {
-    display: flex;
-    justify-content: space-between;
-    
-}
 
-#order-total {
+/* Menu Name Button Styles */
+#menu-names {
     display: flex;
     justify-content: space-between;
 }
 
+#menu-names button {
+    color: white;
+    text-transform: capitalize;
+    font-size: 15pt;
+    font-weight: 500;
+    padding: 0.5em;
+}
+
+
+/* Control Button Styles */
 #deleteButton, #close-check, #checkout, #start-game {
     font-size: 15pt;
     font-weight: 500;
     padding: 0.5em, 2em;
+}
+
+#control-buttons {
+    display: flex;
+    justify-content: space-between;
+    
 }
