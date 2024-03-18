@@ -7,7 +7,10 @@ import CloseCheck from "./CloseCheck";
 import GameToggle from "./GameToggle";
 
 function POS({ order }) {
-    // Function that adds clicked button to Screen
+    // Menu State (setting current menu for items display)
+    const [currentMenu, setCurrentMenu] = useState('entrees');
+    
+    // Items State (adding to screen)
     const [items, setItems] = useState({
         entrees: [],
         sides: [],
@@ -15,6 +18,7 @@ function POS({ order }) {
         desserts: []
     });
 
+    // Add Item to Screen Function
     function handleItemClick( category, item, price ) {
         const updatedItems = {...items};
         const categoryItems = updatedItems[category] || [];
@@ -24,6 +28,11 @@ function POS({ order }) {
         setItems({...updatedItems, [category]: categoryItems })
     };
     
+    // Set Current Menu Function 
+    function handleMenuClick(value) {
+        console.log(value);
+        setCurrentMenu(value);
+    };
 
     return (
         <>
@@ -31,13 +40,10 @@ function POS({ order }) {
                 <Screen items={items} order={order}/>
 
                 <div id="pos-buttons-div">
-                    <h4>Menu Buttons:</h4>
-                    <MenuButtons /><br/>
+                    <MenuButtons handleMenuClick={handleMenuClick}/><hr/>
 
-                    <h4>Menu Item Buttons:</h4>
-                    <ItemButtons handleItemClick={handleItemClick}/><br/>
+                    <ItemButtons handleItemClick={handleItemClick} currentMenu={currentMenu}/><hr/>
 
-                    <h4>Control Buttons:</h4>
                     <div id="control-buttons" className="flex-buttons">
                         <DeleteButton items={items}/>
                         <CloseCheck />

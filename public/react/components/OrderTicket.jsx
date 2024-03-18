@@ -6,27 +6,18 @@ function OrderTicket({ order }) {
         <>
             <div id="order-ticket">
                 <h4>Order</h4><hr/>
-                <div id="order-items">
-                    <h6>Entrees</h6><hr/>
-                    {/* {order.order.entrees.ForEach((item, index) => (
-                        <p key={index}>{item}</p>
-                    ))} */}
-
-                    <h6>Sides</h6><hr/>
-                    {/* {order.sides.map((item, index) => (
-                        <p key={index}>{item}</p>
-                    ))} */}
-
-                    <h6>Beverages</h6><hr/>
-                    {/* {order.beverages.map((item, index) => (
-                        <p key={index}>{item}</p>
-                    ))} */}
-
-                    <h6>Desserts</h6><hr/>
-                    {/* {order.desserts.map((item, index) => (
-                        <p key={index}>{item}</p>
-                    ))} */}
-                </div>
+                {/* <div id="order-items"> */}
+                    {/* Iterates over keys(category/menu name) of order object*/}
+                    {/* {Object.keys(order.order).map((category, index) => (
+                        <div key={index}>
+                            <h6>{category}</h6> */}
+                            {/* Maps over items in each category and renders as p element*/}
+                            {/* {order.order[category].map((item, itemIndex) => (
+                                <p key={itemIndex}>{item}</p>
+                            ))}
+                        </div>    
+                    ))} 
+                     </div> */}
             </div>
         </>
     )
