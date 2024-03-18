@@ -74,6 +74,11 @@ h1 {
     justify-content: space-between;
 }
 
+#order-container {
+    overflow-y: auto;
+    height: 13em;
+}
+
 
 /* BUTTONS */
 /* Main Styles */
@@ -105,6 +110,21 @@ h1 {
     font-size: 15pt;
     font-weight: 500;
     padding: 0.5em;
+}
+
+
+/* Menu Item Button Styles */
+#menu-items {
+    overflow-y: auto;
+}
+
+#menu-items button {
+    color: white;
+    font-size: 12pt;
+    font-weight: 500;
+    margin: 6px;
+    background-color: navy;
+    border-color: navy;
 }
 
 
