@@ -6,7 +6,7 @@ import apiUrl from '../api';
 // Menu Buttons display the different menu categories
 // Entrees, Sides, Beverages, Desserts
 
-function MenuButtons() {
+function MenuButtons({ handleMenuClick }) {
     const [menus, setMenus] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,6 @@ function MenuButtons() {
             try {
                 const res = await axios.get(`${apiUrl}/pos_system`);
                 const menuNames = res.data.menus;
-                console.log(menuNames);
                 setMenus(menuNames)
             } catch (error) {
                 console.error('Error fetching menus:', error)
@@ -27,7 +26,13 @@ function MenuButtons() {
         <>
             <div id="menu-names">
                 {menus.map((menuTitle, index) => (
-                    <button className="btn btn-warning" key={index} value={menuTitle}>{menuTitle}</button>
+                    <button 
+                    className="btn btn-warning" 
+                    key={index} 
+                    value={menuTitle} 
+                    onClick={() => handleMenuClick(menuTitle)}>
+                        {menuTitle}
+                    </button>
                 ))}
             </div>
         </>
