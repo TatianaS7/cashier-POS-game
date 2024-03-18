@@ -28,13 +28,13 @@ function Screen({ order, items }) {
                 {/* Import order data */}
                 <h5>Customer: {order.customer}</h5>
                 <h5>Covers: {order.covers}</h5>
-            </div>
+            </div><hr/>
 
             <div id="order-container">
                 {/* {items.map((item, index) => (
                     <p key={index}>{item.item}: ${item.price.toFixed(2)}</p>
                 ))} */}
-            </div>
+            </div><hr/>
 
             <div id="order-total">
                 <div id="titles">
