@@ -1,0 +1,101 @@
+/* * {
+    border: red dashed 1pt;
+} */
+
+main {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Header Styles */
+#header-div {
+    display: flex;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    padding: 1em;
+    align-items: center;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+#clockout {
+    color: white;
+    font-weight: 500;
+    font-size: 18pt;
+}
+
+
+/* Ticket Styles */
+#order-ticket {
+    margin: 4em 2em;
+    background-color: antiquewhite;
+    min-width: 20%;
+    min-height: 25em;
+    max-height: 30em;
+    padding: 20px;
+    text-transform: uppercase;
+}
+
+/* POS */
+#pos-div {
+    flex: 1;
+    margin: 3em 3em 15px 15px;
+    background-color: rgb(185, 185, 185);
+    max-width: fit-content;
+    min-width: 30em;
+    max-height: 28em;
+    border-radius: 8px;
+}
+
+#screen {
+    border: black solid 2pt;
+    border-radius: 8px;
+    width: 35em;
+    background-color: white;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#customer-info h5{
+    font-weight: bold;
+}
+
+#pos-buttons-div {
+    background-color: gainsboro;
+    padding: 1.5em;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+}
+
+#pos-buttons-div h4 {
+    color: white;
+    font-size: 12pt;
+}
+
+#control-buttons {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#order-total {
+    display: flex;
+    justify-content: space-between;
+}
+
+#deleteButton, #close-check, #checkout, #start-game {
+    font-size: 15pt;
+    font-weight: 500;
+    padding: 0.5em, 2em;
+}
