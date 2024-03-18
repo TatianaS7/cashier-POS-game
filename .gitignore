@@ -1,0 +1,10 @@
+node_modules
+
+# Ignore Python bytecode files
+_pycache_
+
+# Ignore Virtual Environment
+venv
+
+# Ignore Distribution Files
+dist/
