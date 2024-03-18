@@ -8,3 +8,6 @@ venv
 
 # Ignore Distribution Files
 dist/
+
+# Ignore Parcel Cache
+.parcel-cache/
