@@ -1,5 +1,6 @@
 pos_system = {
     'names': ['Avery', 'Melody', 'Rufus', 'Sabrina', 'Michael', 'Rubin', 'James', 'Vic', 'Ace', 'Marco', 'Veronica', 'Chris', 'Anita', 'Loie', 'Maya', 'Nadia', 'Lola'],
+    "menus": ['entrees', 'sides', 'beverages', 'desserts'],
     'menu_items': {
         'entrees': [
             {'item': 'Braised Pork Chops', 'price': 24}, 
