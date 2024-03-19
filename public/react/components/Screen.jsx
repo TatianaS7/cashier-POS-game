@@ -11,15 +11,15 @@ function Screen({ order, items }) {
         total: 0
     });
 
-    // useEffect(() => {
-    //     let subtotal = 0;
-    //     items.forEach(item => {
-    //         subtotal += item.price
-    //     });
-    //     const tax = subtotal * 0.07;
-    //     const total = subtotal + tax;
-    //     setTotals({ subtotal, tax, total })
-    // }, [items]);
+    useEffect(() => {
+        let subtotal = 0;
+        items[0].forEach(item => {
+            subtotal += item.price
+        });
+        const tax = subtotal * 0.07;
+        const total = subtotal + tax;
+        setTotals({ subtotal, tax, total })
+    }, [items]);
 
     return(
         <>
@@ -31,9 +31,9 @@ function Screen({ order, items }) {
             </div><hr/>
 
             <div id="order-container">
-                {/* {items.map((item, index) => (
-                    <p key={index}>{item.item}: ${item.price.toFixed(2)}</p>
-                ))} */}
+                {items[0].map((item, index) => (
+                    <p key={index}>{item.item}: ${item.price}</p>
+                ))}
             </div><hr/>
 
             <div id="order-total">
