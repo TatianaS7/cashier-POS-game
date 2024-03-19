@@ -27,7 +27,7 @@ function MenuButtons({ handleMenuClick }) {
             <div id="menu-names">
                 {menus.map((menuTitle, index) => (
                     <button 
-                    className="btn btn-warning" 
+                    className="btn btn-light" 
                     key={index} 
                     value={menuTitle} 
                     onClick={() => handleMenuClick(menuTitle)}>

@@ -6,7 +6,7 @@ import DeleteButton from "./DeleteButton";
 import CloseCheck from "./CloseCheck";
 import GameToggle from "./GameToggle";
 
-function POS({ order, setOrder }) {
+function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
     // Menu State (setting current menu for items display)
     const [currentMenu, setCurrentMenu] = useState('entrees');
     
@@ -28,7 +28,6 @@ function POS({ order, setOrder }) {
 
         // Pushes clicked menu item into array as object with item and price
         categoryItems.push({ item, price });
-        console.log(categoryItems);
         
         //Sets items to existing items plus newly added items from array
         setItems({...updatedItems, [currentMenu]: categoryItems })
@@ -63,7 +62,7 @@ function POS({ order, setOrder }) {
                         <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
                         <DeleteButton items={Object.values(items)}/>
                         <CloseCheck items={items} />
-                        <GameToggle setOrder={setOrder} setItems={setItems}/>
+                        <GameToggle setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted}/>
                     </div>
                 </div>
             </div>

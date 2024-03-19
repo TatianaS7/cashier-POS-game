@@ -10,7 +10,6 @@ function ItemButtons({ handleItemClick, currentMenu }) {
             try {
                 const res = await axios.get(`${apiURL}/pos_system`); //Data from Python dictionary
                 const items = res.data.menu_items;
-                console.log(items[currentMenu]);
                 setMenuItems(items[currentMenu]) //Accesses item values from currentMenu key and sets items
             } catch (error) {
                 console.error('Error fetching menu items', error);

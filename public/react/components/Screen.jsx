@@ -16,7 +16,7 @@ function Screen({ order, items }) {
         items[0].forEach(item => {
             subtotal += item.price
         });
-        const tax = subtotal * 0.07;
+        const tax = subtotal * 0.085;
         const total = subtotal + tax;
         setTotals({ subtotal, tax, total })
     }, [items]);
