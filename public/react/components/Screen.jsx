@@ -31,15 +31,27 @@ function Screen({ order, items }) {
             </div><hr/>
 
             <div id="order-container">
+                <div id="labels">
+                    <p>Qty</p>
+                    <p>Item</p>
+                    <p>Price</p>
+                </div>
+
                 {items[0].map((item, index) => (
-                    <p key={index}>{item.item}: ${item.price}</p>
+                    <>
+                        <div className="item-element">
+                            <p>1</p>
+                            <p key={index}>{item.item}</p>
+                            <p key={item.price}>${item.price}</p>
+                        </div>
+                    </>
                 ))}
             </div><hr/>
 
             <div id="order-total">
                 <div id="titles">
-                    <h5>Subtotal</h5> 
-                    <h5>Tax</h5>
+                    <h6>Subtotal</h6> 
+                    <h6>Tax</h6>
                     <h3>Total</h3>
                 </div>
                 <div id="totals" style={{textAlign: 'right'}}>
