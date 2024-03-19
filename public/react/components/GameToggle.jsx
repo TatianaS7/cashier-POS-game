@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import apiURL from "../api";
 
-function GameToggle({ setOrder, setItems }) {
-    const [gameIsStarted, setGameIsStarted] = useState(false)
+function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
 
     function endGame() {
         // Add Functionality to show all stats and end the game
         window.alert('End Game?')
         setGameIsStarted(false);
-        setOrder([]);
+        setOrder({});
         setItems({
             entrees: [],
             sides: [],
@@ -41,7 +40,6 @@ function GameToggle({ setOrder, setItems }) {
         try {
             const res = await axios.get(`${apiURL}/generate_order`);
             const data = res.data;
-            console.log(data);
             setOrder(data)
         } catch (error) {
             console.error('Error fetching order', error);
