@@ -40,6 +40,15 @@ function POS({ order, setOrder }) {
         setCurrentMenu(value);
     };
 
+    // Clear Screen Function
+    function handleClearBtnClick() {
+        setItems({
+            entrees: [],
+            sides: [],
+            beverages: [],
+            desserts: []})
+    };
+
     return (
         <>
             <div className="flex" id="pos-div">
@@ -51,8 +60,9 @@ function POS({ order, setOrder }) {
                     <ItemButtons handleItemClick={handleItemClick} currentMenu={currentMenu}/><hr/>
 
                     <div id="control-buttons" className="flex-buttons">
+                        <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
                         <DeleteButton items={Object.values(items)}/>
-                        <CloseCheck />
+                        <CloseCheck items={items} />
                         <GameToggle setOrder={setOrder} setItems={setItems}/>
                     </div>
                 </div>

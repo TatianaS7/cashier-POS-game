@@ -115,7 +115,7 @@ h1 {
 
 #menu-names button {
     color: white;
-    /* border-color: black; */
+    border-color: goldenrod;
     background-color: goldenrod;
     text-transform: capitalize;
     font-size: 15pt;
@@ -154,6 +154,11 @@ h1 {
     font-weight: 500;
     padding: 0.5em, 2em;
     color: white;
+}
+
+#clear-screen {
+    font-weight: 500;
+    font-size: 15pt;
 }
 
 #control-buttons {
