@@ -1,8 +1,8 @@
 import React from "react";
-import Screen from "./Screen";
 
 function DeleteButton({ items }) {
     // Function that deletes last added item on screen
+    
 
 
     
