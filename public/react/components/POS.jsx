@@ -6,7 +6,7 @@ import DeleteButton from "./DeleteButton";
 import CloseCheck from "./CloseCheck";
 import GameToggle from "./GameToggle";
 
-function POS({ order }) {
+function POS({ order, setOrder }) {
     // Menu State (setting current menu for items display)
     const [currentMenu, setCurrentMenu] = useState('entrees');
     
@@ -19,25 +19,31 @@ function POS({ order }) {
     });
 
     // Add Item to Screen Function
-    function handleItemClick( category, item, price ) {
+    function handleItemClick( currentMenu, item, price ) {
+        // Stores existing items in variable
         const updatedItems = {...items};
-        const categoryItems = updatedItems[category] || [];
+        
+        //Array with categories 
+        const categoryItems = updatedItems[currentMenu] || [];
 
+        // Pushes clicked menu item into array as object with item and price
         categoryItems.push({ item, price });
-
-        setItems({...updatedItems, [category]: categoryItems })
+        console.log(categoryItems);
+        
+        //Sets items to existing items plus newly added items from array
+        setItems({...updatedItems, [currentMenu]: categoryItems })
+        console.log(items);
     };
     
     // Set Current Menu Function 
     function handleMenuClick(value) {
-        console.log(value);
         setCurrentMenu(value);
     };
 
     return (
         <>
             <div className="flex" id="pos-div">
-                <Screen items={items} order={order}/>
+                <Screen items={Object.values(items)} order={order}/>
 
                 <div id="pos-buttons-div">
                     <MenuButtons handleMenuClick={handleMenuClick}/><hr/>
@@ -45,9 +51,9 @@ function POS({ order }) {
                     <ItemButtons handleItemClick={handleItemClick} currentMenu={currentMenu}/><hr/>
 
                     <div id="control-buttons" className="flex-buttons">
-                        <DeleteButton items={items}/>
+                        <DeleteButton items={Object.values(items)}/>
                         <CloseCheck />
-                        <GameToggle />
+                        <GameToggle setOrder={setOrder} setItems={setItems}/>
                     </div>
                 </div>
             </div>
