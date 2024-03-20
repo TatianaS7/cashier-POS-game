@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+// SCREEN COMPONENT
+// name and covers are grabbed and displayed from order
+// items, prices, and totals are shown when user presses buttons
 
-// Screen is where name and covers are grabbed from order
-// and items/totals are shown when user presses buttons
+import React, { useState, useEffect } from "react";
 
 function Screen({ order, items }) {
     //Calculate Totals from button totals
@@ -13,9 +14,11 @@ function Screen({ order, items }) {
 
     useEffect(() => {
         let subtotal = 0;
-        items[0].forEach(item => {
-            subtotal += item.price
-        });
+        items.map((category, index) => (
+            items[index].forEach((item => {
+                subtotal += item.price 
+            }))
+        ))
         const tax = subtotal * 0.085;
         const total = subtotal + tax;
         setTotals({ subtotal, tax, total })
@@ -29,23 +32,23 @@ function Screen({ order, items }) {
                 <h5>Customer: {order.customer}</h5>
                 <h5>Covers: {order.covers}</h5>
             </div><hr/>
-
-            <div id="order-container">
                 <div id="labels">
                     <p>Qty</p>
                     <p>Item</p>
                     <p>Price</p>
                 </div>
 
-                {items[0].map((item, index) => (
-                    <>
-                        <div className="item-element">
-                            <p>1</p>
-                            <p key={index}>{item.item}</p>
-                            <p key={item.price}>${item.price}</p>
-                        </div>
-                    </>
-                ))}
+            <div id="order-container">
+                {/* Maps over items array, then each category array, and outputs items w/ prices */}
+                    {items.map((category, index) => (
+                        items[index].map((item, index) => (
+                            <div className="item-element">
+                                <p>1</p>
+                                <p key={index}>{item.item}</p>
+                                <p key={item.price}>${item.price}</p>
+                            </div>
+                        ))
+                    ))}
             </div><hr/>
 
             <div id="order-total">
