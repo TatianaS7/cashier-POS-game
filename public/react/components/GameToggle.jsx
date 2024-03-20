@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
 import apiURL from "../api";
 
 function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
+    const [show, setShow] = useState(false);
 
     function endGame() {
-        // Add Functionality to show all stats and end the game
-        window.alert('End Game?')
         setGameIsStarted(false);
         setOrder({});
         setItems({
@@ -15,6 +15,7 @@ function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
             beverages: [],
             desserts: []
         })
+        setShow(false);
     }
 
     // Sets State to true 
@@ -44,7 +45,10 @@ function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
         } catch (error) {
             console.error('Error fetching order', error);
         }
-    };     
+    };    
+    
+    const handleClose = () => setShow(false);
+    const handleOpen = () => setShow(true);
 
 
     return (
@@ -54,7 +58,7 @@ function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
             <button 
             id="clockout" 
             className="btn btn-warning" 
-            onClick={endGame}>
+            onClick={handleOpen}>
                 Clock Out
             </button>
             :
@@ -65,6 +69,18 @@ function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
                 Clock In
             </button>
         }
+
+        {/* Modal to end game */}
+        <Modal show={show} onHide={handleClose} size="md" centered>
+            <Modal.Header></Modal.Header>
+            <Modal.Body id="endGame-modalBody">
+                End Game?
+            </Modal.Body>
+            <Modal.Footer id="endGame-modal-buttons">
+                <Button onClick={handleClose} variant="success">Go Back</Button>
+                <Button onClick={endGame} variant="danger">End Game</Button>
+            </Modal.Footer>
+        </Modal>
         </>
     )
 }

@@ -175,3 +175,13 @@ h1 {
     background-color: rgb(160, 45, 160);
     border-color: rgb(160, 45, 160);
 }
+
+#endGame-modal-buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#endGame-modalBody {
+    display: flex;
+    justify-content: center;
+}
