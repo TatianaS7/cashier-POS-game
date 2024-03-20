@@ -39,7 +39,7 @@ function Screen({ order, items }) {
                 </div>
 
             <div id="order-container">
-                {/* Maps over items array, then each category array, and outputs items w/ prices */}
+                {/* Maps over items object, then each key's array, and outputs items w/ prices */}
                     {items.map((category, index) => (
                         items[index].map((item, index) => (
                             <div className="item-element">
