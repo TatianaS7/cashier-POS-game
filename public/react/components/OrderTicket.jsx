@@ -5,30 +5,30 @@
 import React, { useState, useEffect } from "react";
 
 function OrderTicket({ gameIsStarted, order }) {
-    const [orderArr, setOrderArr] = useState(null);
+    const [orderObj, setOrderObj] = useState(null);
 
     console.log(gameIsStarted);
     console.log(order);
 
     useEffect(() => {
-        setOrderArr(order.order);
-        console.log(orderArr);
-
+        if (gameIsStarted) {
+            setOrderObj(order.order);
+        }
     }, [gameIsStarted, order])
+
+    console.log(orderObj);
 
 
     return (
         <div id="order-ticket">
             <h4>Order</h4><hr/>
             <div id="order-items">
-                
-                    {/* {gameIsStarted && (
-                        orderArr.map((category, index) => (
-                            orderArr[index].forEach((item, index) => (
-                                <p key={index}>{item}</p> 
+                {gameIsStarted && orderObj &&
+                        Object.keys(orderObj).map((category) => (
+                            orderObj[category].map((item, idx) => (
+                                <p key={idx}>{item}</p>
                             ))
-                        ))
-                    )}                                */}
+                        ))}
             </div>
         </div>
 

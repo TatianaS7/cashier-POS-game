@@ -40,6 +40,12 @@ h1 {
     text-transform: uppercase;
 }
 
+#order-items {
+    padding: 1em;
+    max-height: 23em;
+    overflow-y: auto;
+}
+
 /* POS */
 #pos-div {
     flex: 1;
