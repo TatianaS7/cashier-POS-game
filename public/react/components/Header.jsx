@@ -1,3 +1,7 @@
+// HEADER COMPONENT
+    // Self Explanatory - Header at top of page
+    // Holds title of page, Timer Component, and Stats Component
+
 import React from "react"
 import Timer from "./Timer"
 import Stats from "./Stats"

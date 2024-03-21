@@ -1,3 +1,7 @@
+// ORDER TICKET COMPONENT
+    // Displays generated order 
+    
+
 import React, { useState, useEffect } from "react";
 
 function OrderTicket({ gameIsStarted, order }) {

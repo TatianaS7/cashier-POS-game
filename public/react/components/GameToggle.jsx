@@ -1,3 +1,9 @@
+// GAME TOGGLE COMPONENT
+    // Toggles between Clock In/Clock Out buttons to start and end game
+    // Fetches order when game is started
+    // Resets all states when game is ended
+
+
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 import axios from "axios";
@@ -72,9 +78,9 @@ function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
 
         {/* Modal to end game */}
         <Modal show={show} onHide={handleClose} size="md" centered>
-            <Modal.Header></Modal.Header>
+            <Modal.Header><h4>End Game?</h4></Modal.Header>
             <Modal.Body id="endGame-modalBody">
-                End Game?
+                Are you sure you want to end the game?
             </Modal.Body>
             <Modal.Footer id="endGame-modal-buttons">
                 <Button onClick={handleClose} variant="success">Go Back</Button>

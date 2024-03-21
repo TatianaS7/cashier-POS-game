@@ -1,7 +1,17 @@
+// TIMER COMPONENT
+    // Countdown functionality for the game
+    // Starts if gameIsStarted is true
+    // Stops if check is closed
+    // Stores time stopped at to calculate tip
+
+
 import React, { useState, useEffect } from "react";
 
 function Timer({ gameIsStarted }) {
-    const [currentTime, setCurrentTime] = useState('');
+    const [currentTime, setCurrentTime] = useState(null);
+
+    let time = 0;
+
 
     
     // useEffect(() => {

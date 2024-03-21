@@ -1,3 +1,7 @@
+// POS COMPONENT
+    // Serves as a container for the screen and all buttons
+
+    
 import React, { useState } from "react";
 import Screen from "./Screen";
 import MenuButtons from "./MenuButtons";
@@ -61,7 +65,7 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
                     <div id="control-buttons" className="flex-buttons">
                         <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
                         <DeleteButton items={Object.values(items)}/>
-                        <CloseCheck items={items} />
+                        <CloseCheck items={items} gameIsStarted={gameIsStarted}/>
                         <GameToggle setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted}/>
                     </div>
                 </div>

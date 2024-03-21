@@ -1,3 +1,6 @@
+// DELETE BUTTON COMPONENT
+    // Responsible for "deleting" items on the screen
+
 import React from "react";
 
 function DeleteButton({ items }) {
