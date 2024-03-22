@@ -7,8 +7,8 @@ import React, { useState, useEffect } from "react";
 function OrderTicket({ gameIsStarted, order }) {
     const [orderObj, setOrderObj] = useState(null);
 
-    console.log(gameIsStarted);
-    console.log(order);
+    // console.log(gameIsStarted);
+    // console.log(order);
 
     useEffect(() => {
         if (gameIsStarted) {
@@ -16,7 +16,7 @@ function OrderTicket({ gameIsStarted, order }) {
         }
     }, [gameIsStarted, order])
 
-    console.log(orderObj);
+    // console.log(orderObj);
 
 
     return (
