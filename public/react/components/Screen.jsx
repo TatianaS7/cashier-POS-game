@@ -4,8 +4,8 @@
 
 import React, { useState, useEffect } from "react";
 
-function Screen({ order, items }) {
-    //Calculate Totals from button totals
+function Screen({ order, items, handleScreenItemClick }) {
+    // Totals State (adding up items on screen)
     const [totals, setTotals] = useState({
         subtotal: 0,
         tax: 0,
@@ -44,7 +44,8 @@ function Screen({ order, items }) {
                         items[index].map((item, index) => (
                             <div className="item-element">
                                 <p>1</p>
-                                <p key={index}>{item.item}</p>
+                                <button key={index} onClick={() => handleScreenItemClick(item.item, item.price)}>{item.item}</button>
+                                {/* <p key={index}>{item.item}</p> */}
                                 <p key={item.price}>${item.price}</p>
                             </div>
                         ))

@@ -88,6 +88,11 @@ h1 {
     justify-content: space-between;
 }
 
+.item-element button {
+    border: none;
+    background: none;
+}
+
 #labels {
     font-size: 9pt;
     font-weight: bold;
