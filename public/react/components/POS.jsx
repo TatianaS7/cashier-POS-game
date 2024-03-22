@@ -22,6 +22,9 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
         desserts: []
     });
 
+    // Current Item State
+    const [currentItem, setCurrentItem] = useState(null);
+    
     // Add Item to Screen Function
     function handleItemClick( currentMenu, item, price ) {
         // Stores existing items in variable
@@ -35,9 +38,10 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
         
         //Sets items to existing items plus newly added items from array
         setItems({...updatedItems, [currentMenu]: categoryItems })
-        console.log(items);
+        // console.log(items);
     };
     
+
     // Set Current Menu Function 
     function handleMenuClick(value) {
         setCurrentMenu(value);
@@ -52,10 +56,23 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
             desserts: []})
     };
 
+    // Sets current item on click
+    function handleScreenItemClick(value) {
+        setCurrentItem(value)
+        console.log(currentItem);
+    };
+
+    // Figure out how to get index of item to delte from items
+    function handleDeleteItemClick( currentMenu, item, items ) {
+        let itemIndex = items[currentMenu].indexOf(item);
+        console.log(itemIndex)
+        // items[currentMenu].splice(itemIndex, 1)
+    };
+
     return (
         <>
             <div className="flex" id="pos-div">
-                <Screen items={Object.values(items)} order={order}/>
+                <Screen items={Object.values(items)} order={order} handleScreenItemClick={handleScreenItemClick}/>
 
                 <div id="pos-buttons-div">
                     <MenuButtons handleMenuClick={handleMenuClick}/><hr/>
@@ -64,8 +81,8 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
 
                     <div id="control-buttons" className="flex-buttons">
                         <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
-                        <DeleteButton items={Object.values(items)}/>
-                        <CloseCheck items={items} gameIsStarted={gameIsStarted}/>
+                        <DeleteButton items={Object.values(items)} handleDeleteItemClick={handleDeleteItemClick} currentItem={currentItem}/>
+                        <CloseCheck items={Object.values(items)} gameIsStarted={gameIsStarted} order={order}/>
                         <GameToggle setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted}/>
                     </div>
                 </div>
