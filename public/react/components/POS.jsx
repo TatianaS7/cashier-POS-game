@@ -9,6 +9,9 @@ import ItemButtons from "./ItemButtons";
 import DeleteButton from "./DeleteButton";
 import CloseCheck from "./CloseCheck";
 import GameToggle from "./GameToggle";
+import axios from "axios";
+import apiURL from "../api";
+
 
 function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
     // Menu State (setting current menu for items display)
@@ -25,6 +28,18 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
     // Current Item State
     const [currentItem, setCurrentItem] = useState(null);
     
+
+    //Generate Order Function
+    async function fetchOrder() {
+        try {
+            const res = await axios.get(`${apiURL}/generate_order`);
+            const data = res.data;
+            setOrder(data)
+        } catch (error) {
+            console.error('Error fetching order', error);
+        }
+    };    
+
     // Add Item to Screen Function
     function handleItemClick( currentMenu, item, price ) {
         // Stores existing items in variable
@@ -40,7 +55,6 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
         setItems({...updatedItems, [currentMenu]: categoryItems })
         // console.log(items);
     };
-    
 
     // Set Current Menu Function 
     function handleMenuClick(value) {
@@ -82,8 +96,8 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted }) {
                     <div id="control-buttons" className="flex-buttons">
                         <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
                         <DeleteButton items={Object.values(items)} handleDeleteItemClick={handleDeleteItemClick} currentItem={currentItem}/>
-                        <CloseCheck items={Object.values(items)} gameIsStarted={gameIsStarted} order={order}/>
-                        <GameToggle setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted}/>
+                        <CloseCheck fetchOrder={fetchOrder} items={Object.values(items)} gameIsStarted={gameIsStarted} order={order} setOrder={setOrder} setItems={setItems}/>
+                        <GameToggle fetchOrder={fetchOrder} setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted}/>
                     </div>
                 </div>
             </div>

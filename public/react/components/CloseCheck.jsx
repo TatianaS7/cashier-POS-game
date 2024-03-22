@@ -8,7 +8,7 @@
 import React, { useState, useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
 
-function CloseCheck({ items, order, gameIsStarted }) {
+function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrder }) {
     const [checkIsClosed, setCheckIsClosed] = useState(false);
     const [show, setShow] = useState(false);
     const [finalTotal, setFinalTotal] = useState(0);
@@ -65,6 +65,14 @@ function CloseCheck({ items, order, gameIsStarted }) {
         setFinalTotal(0);
         setTip(0)
         setAccuracy(null);
+        setOrder({});
+        setItems({
+            entrees: [],
+            sides: [],
+            beverages: [],
+            desserts: []
+        })
+        fetchOrder();
     }
 
 

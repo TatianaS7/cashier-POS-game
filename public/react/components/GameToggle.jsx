@@ -6,10 +6,8 @@
 
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
-import axios from "axios";
-import apiURL from "../api";
 
-function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
+function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsStarted }) {
     const [show, setShow] = useState(false);
 
     function endGame() {
@@ -42,16 +40,6 @@ function GameToggle({ setOrder, setItems, gameIsStarted, setGameIsStarted }) {
         }
     }, [gameIsStarted]);
 
-    // Function to fetch random order - Flask API from Python function
-    async function fetchOrder() {
-        try {
-            const res = await axios.get(`${apiURL}/generate_order`);
-            const data = res.data;
-            setOrder(data)
-        } catch (error) {
-            console.error('Error fetching order', error);
-        }
-    };    
     
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
