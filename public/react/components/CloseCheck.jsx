@@ -8,12 +8,14 @@
 import React, { useState, useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
 
-function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrder }) {
+function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrder, time, setTime }) {
     const [checkIsClosed, setCheckIsClosed] = useState(false);
     const [show, setShow] = useState(false);
     const [finalTotal, setFinalTotal] = useState(0);
     const [tip, setTip] = useState(0);
     const [accuracy, setAccuracy] = useState(null);
+    const [finalTime, setFinalTime] = useState(null);
+
 
     // Sets final total based on check being closed
     useEffect(() => {
@@ -26,8 +28,8 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
             const tax = subtotal * 0.085;
             const total = subtotal + tax;
 
-        if (checkIsClosed) {
-            console.log(total);
+        if (checkIsClosed && gameIsStarted) {
+            // console.log(total);
             setFinalTotal(total);    
         }
     }, [items, checkIsClosed])
@@ -48,18 +50,22 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
 
         if (finalTotal) {
             let calculateTip = finalTotal * 0.15;
-            console.log(calculateTip);
+            // console.log(calculateTip);
             setTip(calculateTip);    
         }
     }, [finalTotal])
 
     // Function closes check and opens modal to show stats
     function handleCloseCheckClick() {
-        setCheckIsClosed(true);
-        setShow(true);
-        
+        if (gameIsStarted) {
+            setCheckIsClosed(true);
+            setShow(true);
+            setFinalTime(time);
+            console.log(finalTime)
+        }
     }
 
+    // Function closes modal, resets all states back to their default, and generates new order for another round
     function handleCloseModal() {
         setShow(false)
         setFinalTotal(0);
@@ -73,6 +79,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
             desserts: []
         })
         fetchOrder();
+        setTime(25);
     }
 
 
@@ -86,7 +93,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
                     </Modal.Header>
                     <Modal.Body>
                         {/* Outputs time when submitted */}
-                        You finished in: __ seconds<br/>
+                        You finished in: {finalTime} seconds<br/>
 
                         {/* Outputs number of correct items out of total */}
                         You got n/item count correct!<br/><br/>

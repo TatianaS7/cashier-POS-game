@@ -6,12 +6,12 @@ import React from "react"
 import Timer from "./Timer"
 import Stats from "./Stats"
 
-function Header({ gameIsStarted }) {
+function Header({ gameIsStarted, time, setTime }) {
     return(
         <>
             <div id="header-div">
                 <h1>Crafts Kitchen</h1>
-                <Timer gameIsStarted={gameIsStarted} />
+                <Timer gameIsStarted={gameIsStarted} time={time} setTime={setTime} />
                 <Stats />
             </div>
         </>
