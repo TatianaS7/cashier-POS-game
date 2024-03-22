@@ -60,7 +60,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
         if (gameIsStarted) {
             setCheckIsClosed(true);
             setShow(true);
-            setFinalTime(time);
+            setFinalTime(25 - time);
             console.log(finalTime)
         }
     }
@@ -92,11 +92,11 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
                         <Modal.Title>Close Check</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {/* Outputs time when submitted */}
+                        {/* Outputs time taken to submit */}
                         You finished in: {finalTime} seconds<br/>
 
                         {/* Outputs number of correct items out of total */}
-                        You got n/item count correct!<br/><br/>
+                        You got n/itemCount correct!<br/><br/>
 
                         {/* Outputs calculated tip */}
                         <h4>Tip: <span style={{color: 'green'}}>${tip.toFixed(2)}</span></h4>
