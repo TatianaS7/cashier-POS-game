@@ -36,20 +36,19 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
 
 
     useEffect(() => {
-        let multiplier = 0;
+        let multiplier;
 
         // Function to check items against order and set accuracy
         // If all items match and time isnt at 0
-            if (finalTime > 0) {
-                multiplier = 0.20;
-            }
+        if (finalTime < 30) {
+            multiplier = 0.20;
+        }
     
-
         // If some items are wrong and time isnt at 0
             // Percentage is 10% - 0.10
 
         // If time is at 0, no order submitted
-        if (time === 0) {
+        else if (finalTime > 30) {
             multiplier = 0
         }
 
@@ -66,7 +65,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
         if (gameIsStarted) {
             setCheckIsClosed(true);
             setShow(true);
-            setFinalTime(25 - time);
+            setFinalTime(30 - time);
             console.log(finalTime)
         }
     }
@@ -85,7 +84,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
             desserts: []
         })
         fetchOrder();
-        setTime(25);
+        setTime(30);
     }
 
 
@@ -105,7 +104,11 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
                         You got n/itemCount correct!<br/><br/>
 
                         {/* Outputs calculated tip */}
-                        <h4>Tip: <span style={{color: 'green'}}>${tip.toFixed(2)}</span></h4>
+                        <h4>Tip: 
+                            <span style={{color: finalTime >= 30 ? 'red' : 'green'}}>
+                                ${tip.toFixed(2)}
+                            </span>
+                        </h4>
 
                     </Modal.Body>
                 </Modal>

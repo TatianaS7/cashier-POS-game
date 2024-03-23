@@ -32,7 +32,7 @@ function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsSt
             beverages: [],
             desserts: []
         })
-        setTime(25);
+        setTime(30);
     };
 
     // Fetches order if gameIsStarted is true upon state change

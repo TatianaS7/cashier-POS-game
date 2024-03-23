@@ -25,7 +25,9 @@ function Timer({ gameIsStarted, time, setTime }) {
         <>
             <div id="timer-div">
                 <h4>Timer</h4>
-                <div id="countdown">{time}</div>
+                <div id="countdown" style={{color: time > 20 ? 'black' : time <= 20 && time > 10 ? 'orange' : 'red' }}>
+                    {time}
+                </div>
             </div>
         </>
     )

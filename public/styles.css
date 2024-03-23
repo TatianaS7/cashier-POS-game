@@ -28,6 +28,13 @@ h1 {
     font-weight: bold;
 }
 
+#countdown {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
 
 /* Ticket Styles */
 #order-ticket {
