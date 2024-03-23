@@ -36,20 +36,26 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
 
 
     useEffect(() => {
-        // Function to check items against order and set accuracy
+        let multiplier = 0;
 
+        // Function to check items against order and set accuracy
         // If all items match and time isnt at 0
-            // Percentage is 20% - 0.20
+            if (finalTime > 0) {
+                multiplier = 0.20;
+            }
+    
 
         // If some items are wrong and time isnt at 0
             // Percentage is 10% - 0.10
 
         // If time is at 0, no order submitted
-            // No Tip
+        if (time === 0) {
+            multiplier = 0
+        }
 
 
         if (finalTotal) {
-            let calculateTip = finalTotal * 0.15;
+            let calculateTip = finalTotal * multiplier;
             // console.log(calculateTip);
             setTip(calculateTip);    
         }
