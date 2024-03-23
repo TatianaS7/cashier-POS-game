@@ -1,17 +1,22 @@
-# Imports Flask framework and jsonify function to convert dictionary to JSON
+# IMPORTS
+# Flask framework and jsonify function to convert dictionary to JSON
 from flask import Flask, jsonify 
 
-# Imports CORS to allow requests
+# CORS to allow requests
 from flask_cors import CORS
 
-
-# Imports pos_system dictionary and generateOrder function from respective modules
+# pos_system dictionary and generateOrder function
 from pos_data import pos_system
 from _main_ import generateOrder
+
+# timer functions 
+from timerFunctions import startTimer, stopTimer
+
 
 # Creates instance of Flask application
 app = Flask(__name__)
 CORS(app)
+
 
 # Defines route/function to get data from pos_system module and return as JSON
 @app.route('/pos_system', methods=['GET'])
@@ -22,6 +27,19 @@ def getPOS():
 def generateOrderRoute():
     order = generateOrder()
     return jsonify(order)
+
+# Defines routes/function for timer
+@app.route('/start_timer', methods=['POST'])
+def start():
+    currentTime = startTimer()
+    return jsonify(currentTime) 
+
+@app.route('/stop_timer', methods=['POST'])
+def stop():
+    currentTime = stopTimer()
+    return jsonify(currentTime)
+
+
 
 # Checks if script is being run to enable debug mode
 if __name__ == '__main__':
