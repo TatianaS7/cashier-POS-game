@@ -6,16 +6,29 @@
 
 import React, { useState, useEffect } from "react";
 
-// Should take in total state from Screen component to tally the totals
-// Should take in checkIsClosed and tip state to know check total is finalized 
-function Stats({ finalTotal, checkIsClosed, tip }) {
+function Stats({ gameIsStarted, finalTotal, checkIsClosed, tip }) {
+    const [totalSales, setTotalSales] = useState(null);
+    const [totalTips, setTotalTips] = useState(null);
 
+    useEffect(() => {
+        if(gameIsStarted && checkIsClosed) {
+            console.log(finalTotal)
+            setTotalSales(finalTotal);
+
+            setTotalTips(tip)
+        }
+
+        else if(!gameIsStarted) {
+            setTotalSales(null);
+            setTotalTips(null);
+        }
+    }, [gameIsStarted, checkIsClosed, tip, finalTotal])
 
     return (
         <>
             <div>
-                <h5>Total Sales:</h5>
-                <h5>Tips:</h5>
+                <h5>Total Sales: {totalSales}</h5>
+                <h5>Tips: {totalTips}</h5>
             </div>
         </>
     )

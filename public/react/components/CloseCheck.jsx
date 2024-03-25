@@ -8,11 +8,8 @@
 import React, { useState, useEffect} from "react";
 import Modal from "react-bootstrap/Modal";
 
-function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrder, time, setTime }) {
-    const [checkIsClosed, setCheckIsClosed] = useState(false);
+function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrder, time, setTime, finalTotal, setFinalTotal, tip, setTip, checkIsClosed, setCheckIsClosed }) {
     const [show, setShow] = useState(false);
-    const [finalTotal, setFinalTotal] = useState(0);
-    const [tip, setTip] = useState(0);
     const [accuracy, setAccuracy] = useState(null);
     const [finalTime, setFinalTime] = useState(null);
 
@@ -94,7 +91,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
             {checkIsClosed && (
                 <Modal show={show} onHide={handleCloseModal}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Close Check</Modal.Title>
+                        <Modal.Title>Summary</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         {/* Outputs time taken to submit */}

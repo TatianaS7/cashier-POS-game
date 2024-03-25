@@ -13,7 +13,7 @@ import axios from "axios";
 import apiURL from "../api";
 
 
-function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime }) {
+function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime, checkIsClosed, setCheckIsClosed, finalTotal, setFinalTotal, tip, setTip }) {
     // Menu State (setting current menu for items display)
     const [currentMenu, setCurrentMenu] = useState('entrees');
     
@@ -97,7 +97,7 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime }
                     <div id="control-buttons" className="flex-buttons">
                         <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
                         <DeleteButton items={Object.values(items)} handleDeleteItemClick={handleDeleteItemClick} currentItem={currentItem}/>
-                        <CloseCheck fetchOrder={fetchOrder} items={Object.values(items)} gameIsStarted={gameIsStarted} order={order} setOrder={setOrder} setItems={setItems} time={time} setTime={setTime} />
+                        <CloseCheck fetchOrder={fetchOrder} items={Object.values(items)} gameIsStarted={gameIsStarted} order={order} setOrder={setOrder} setItems={setItems} time={time} setTime={setTime} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} />
                         <GameToggle fetchOrder={fetchOrder} setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted} setTime={setTime} />
                     </div>
                 </div>
