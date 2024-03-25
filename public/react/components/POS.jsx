@@ -71,16 +71,17 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime, 
     };
 
     // Sets current item on click
-    function handleScreenItemClick(value) {
-        setCurrentItem(value);
-        console.log(currentItem);
+    function handleScreenItemClick(item, price) {
+        setCurrentItem({item, price});
     };
 
     // Figure out how to get index of item to delte from items
-    function handleDeleteItemClick( currentMenu, item, items ) {
-        let itemIndex = items[currentMenu].indexOf(item);
-        console.log(itemIndex);
-        // items[currentMenu].splice(itemIndex, 1)
+    function handleDeleteItemClick( currentItem, items ) {
+        // let itemIndex = items[currentMenu].indexOf(currentItem);
+        console.log(items);
+        console.log(currentItem);
+        console.log(items.indexOf(currentItem));
+        // items.splice(, 1)
     };
 
 
@@ -96,7 +97,7 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime, 
 
                     <div id="control-buttons" className="flex-buttons">
                         <button id="clear-screen" className="btn btn-light" onClick={handleClearBtnClick}>Clear</button>
-                        <DeleteButton items={Object.values(items)} handleDeleteItemClick={handleDeleteItemClick} currentItem={currentItem}/>
+                        <DeleteButton items={Object.values(items)} handleDeleteItemClick={handleDeleteItemClick} currentItem={currentItem} />
                         <CloseCheck fetchOrder={fetchOrder} items={Object.values(items)} gameIsStarted={gameIsStarted} order={order} setOrder={setOrder} setItems={setItems} time={time} setTime={setTime} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} />
                         <GameToggle fetchOrder={fetchOrder} setOrder={setOrder} setItems={setItems} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted} setTime={setTime} />
                     </div>

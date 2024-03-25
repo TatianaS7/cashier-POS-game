@@ -100,6 +100,10 @@ h1 {
     background: none;
 }
 
+.item-element button:focus {
+    color: navy;
+}
+
 #labels {
     font-size: 9pt;
     font-weight: bold;

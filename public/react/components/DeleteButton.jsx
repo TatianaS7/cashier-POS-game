@@ -3,10 +3,10 @@
 
 import React from "react";
 
-function DeleteButton({ handleDeleteItemClick, currentItem }) {
+function DeleteButton({ handleDeleteItemClick, currentItem, items }) {
     
     return (
-        <button id="deleteButton" className="btn btn-danger" onClick={() => handleDeleteItemClick(currentItem)}>Delete Item</button>
+        <button id="deleteButton" className="btn btn-danger" onClick={() => handleDeleteItemClick(currentItem, items)}>Delete Item</button>
     )
 }
 
