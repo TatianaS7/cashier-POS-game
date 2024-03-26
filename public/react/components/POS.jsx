@@ -67,21 +67,30 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime, 
             entrees: [],
             sides: [],
             beverages: [],
-            desserts: []})
+            desserts: []
+        })
     };
 
     // Sets current item on click
-    function handleScreenItemClick(item, price) {
-        setCurrentItem({item, price});
+    function handleScreenItemClick(item) {
+        setCurrentItem(item);
     };
 
-    // Figure out how to get index of item to delte from items
+    // Gets index of current item to delete from items 
     function handleDeleteItemClick( currentItem, items ) {
-        // let itemIndex = items[currentMenu].indexOf(currentItem);
-        console.log(items);
-        console.log(currentItem);
-        console.log(items.indexOf(currentItem));
-        // items.splice(, 1)
+        // Iterate over all menus (keys)
+        Object.keys(items).forEach((menu) => {
+            // Find index of item within current menu (where menuItem matches currentItem)
+            const itemIndex = items[menu].findIndex((menuItem) => menuItem === currentItem)
+
+            // If item exists in current menu (-1 indicates not found)
+            if(itemIndex !== -1) {
+                // Remove item from current menu
+                items[menu].splice(itemIndex, 1)
+            }
+        })
+        // Set items again to refresh the screen
+        setItems(items)
     };
 
 
