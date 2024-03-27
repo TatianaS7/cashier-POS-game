@@ -39,9 +39,11 @@ function Screen({ order, items, handleScreenItemClick }) {
                 </div>
 
             <div id="order-container">
-                {/* Maps over items object to get index, then each key's array, and outputs items w/ prices */}
+                {/* Maps over items object, then each key's array, and outputs items w/ prices */}
                     {items.map((category, index) => (
+                        // Maps over items in specified index
                         items[index].map((item, index) => (
+                            // Renders div for each element with quantity, name as button (for deletion), and item price
                             <div className="item-element">
                                 <p>1</p>
                                 <button key={index} onClick={() => handleScreenItemClick(item)}>{item.item}</button>

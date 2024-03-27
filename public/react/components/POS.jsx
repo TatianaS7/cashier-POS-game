@@ -1,5 +1,6 @@
 // POS COMPONENT
     // Serves as a container for the screen and all buttons
+    // Main functions and states are initialized here for access between components
 
     
 import React, { useState } from "react";
@@ -14,10 +15,10 @@ import apiURL from "../api";
 
 
 function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime, checkIsClosed, setCheckIsClosed, finalTotal, setFinalTotal, tip, setTip }) {
-    // Menu State (setting current menu for items display)
+    // Current Menu State (current menu for items display)
     const [currentMenu, setCurrentMenu] = useState('entrees');
     
-    // Items State (adding to screen)
+    // Items State 
     const [items, setItems] = useState({
         entrees: [],
         sides: [],
@@ -71,12 +72,12 @@ function POS({ order, setOrder, gameIsStarted, setGameIsStarted, time, setTime, 
         })
     };
 
-    // Sets current item on click
+    // Set Current Item Function
     function handleScreenItemClick(item) {
         setCurrentItem(item);
     };
 
-    // Gets index of current item to delete from items 
+    // Delete Current Item Function
     function handleDeleteItemClick( currentItem, items ) {
         // Iterate over all menus (keys)
         Object.keys(items).forEach((menu) => {

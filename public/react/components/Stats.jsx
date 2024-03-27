@@ -14,7 +14,6 @@ function Stats({ gameIsStarted, finalTotal, checkIsClosed, tip }) {
         if(gameIsStarted && checkIsClosed) {
             console.log(finalTotal)
             setTotalSales(finalTotal);
-
             setTotalTips(tip)
         }
 
@@ -22,7 +21,7 @@ function Stats({ gameIsStarted, finalTotal, checkIsClosed, tip }) {
             setTotalSales(null);
             setTotalTips(null);
         }
-    }, [gameIsStarted, checkIsClosed, tip, finalTotal])
+    }, [gameIsStarted, checkIsClosed])
 
     return (
         <>
