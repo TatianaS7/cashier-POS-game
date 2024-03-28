@@ -13,6 +13,7 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
     const [finalTime, setFinalTime] = useState(null);
     const [totalItems, setTotalItems] = useState(null);
     const [correctCount, setCorrectCount] = useState(null);
+    const [multiplier, setMultiplier] = useState(0);
 
 
     // Sets final total based on check being closed
@@ -34,7 +35,6 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
 
     // Checks order accuracy and calculates tip
     useEffect(() => {
-        let multiplier;
         let correct = 0;
         let itemCount = 0;
         
@@ -46,36 +46,48 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
                 itemCount += order.order[menu].length;
                 // Iterate over items in menu for order object
                 order.order[menu].forEach((orderItem) => {
-                    // Check if OrderItem exists in items object
-                    if(items[menu] && items[menu].includes(orderItem)) {
-                        // Increment correct count if found
-                        console.log(items[menu].includes(orderItem));
-                        correct ++;
-                        console.log(correct)
-                    }
-                })
-            })   
+                    // Iterate over each key in items object
+                    Object.keys(items).forEach((idx) => {
+                        // Iterate over each item within key
+                        items[idx].forEach((item) => {
+                            // If the item property matches the order item
+                            if (item.item === orderItem) {
+                                // Increment correct count if found
+                                correct ++;
+                            }
+                        })
+                    })
+                }
+                )
+            }) 
+            // Set correctCount and totalItems states  
             setCorrectCount(correct);
             setTotalItems(itemCount); 
         }
 
         if (finalTotal) {
             compareItems(order, items)
+        } else {
+            setCorrectCount(0);
+            setTotalItems(0)
         }
     
-        // If all items match and time isnt at 0
-        if (finalTime < 30) {
-            multiplier = 0.20;
+        // If time is under 30 seconds and all items match (but not 0)
+            // 20% Tip
+        if (finalTime <= 30 && correctCount === totalItems && correctCount !== 0 && totalItems !== 0) {
+            setMultiplier(0.20);
         }
-    
-        // If some items are wrong and time isnt at 0
-            // Percentage is 10% - 0.10
-
-
-        // If time is at 0, no order submitted
-        else if (finalTime > 30) {
-            multiplier = 0
+        // If time is under 30 seconds and more than half the items are correct but not all
+            // 10% Tip
+        else if (finalTime <= 30 && correctCount >= totalItems/2 && correctCount < totalItems) {
+            setMultiplier(0.10)
         }
+        // If time is over 30 seconds, more than half the items are incorrect, or no items have been submitted
+            // No Tip
+        else if (finalTime > 30 || correctCount < totalItems/2 || correctCount === 0 && totalItems === 0) {
+            setMultiplier(0)
+        }
+
         // If finalTotal is set, calcualate and set the tip
         if (finalTotal) {
             let calculateTip = finalTotal * multiplier;
@@ -117,24 +129,30 @@ function CloseCheck({ items, order, gameIsStarted, setOrder, setItems, fetchOrde
         <>
             <button id="close-check" className="btn btn-dark" onClick={handleCloseCheckClick}>Close Check</button>
             {checkIsClosed && (
-                <Modal show={show} onHide={handleCloseModal}>
+                <Modal show={show} onHide={handleCloseModal} size="sm">
                     <Modal.Header closeButton>
                         <Modal.Title>Summary</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {/* Outputs time taken to submit */}
-                        You finished in: {finalTime} seconds<br/>
-
-                        {/* Outputs number of correct items out of total items */}
-                        You got {correctCount}/{totalItems} correct!<br/><br/>
+                        <div id="time-accuracy" style={{display: 'flex', justifyContent: 'space-between'}}>
+                            <div>
+                                <h4>Time</h4>
+                                {/* Outputs time taken to submit */}
+                                <p>{finalTime} seconds</p>
+                            </div>
+                            <div>
+                                <h4>Accuracy</h4>
+                                {/* Outputs number of correct items out of total items */}
+                                <p>{correctCount}/{totalItems}</p>
+                            </div>
+                        </div><hr/>
 
                         {/* Outputs calculated tip; conditionally styled based on final time */}
-                        <h4>Tip:  
-                            <span style={{color: finalTime >= 30 ? 'red' : 'green'}}>
+                        <h4>Tip</h4>  
+                            <span style={{color: finalTime >= 30 || finalTotal === 0  || tip === 0 ? 'red' : 'green', fontSize: '20pt', fontWeight: 'bold'}}>
                                 ${tip.toFixed(2)}
                             </span>
-                        </h4>
-
+                        <p style={{color: 'grey'}}>Percentage: {multiplier * 100}%</p>
                     </Modal.Body>
                 </Modal>
             )}
