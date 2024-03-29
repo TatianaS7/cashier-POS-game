@@ -7,7 +7,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsStarted, setTime }) {
+function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsStarted, setTime, setGameRound, setTip, setFinalTotal }) {
     const [show, setShow] = useState(false);
 
     function endGame() {
@@ -21,6 +21,9 @@ function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsSt
         })
         setShow(false);
         setTime(null);
+        setGameRound(0);
+        setTip(0);
+        setFinalTotal(0);
     }
 
     // Sets State to true 
@@ -33,6 +36,7 @@ function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsSt
             desserts: []
         })
         setTime(30);
+        setGameRound(1);
     };
 
     // Fetches order if gameIsStarted is true upon state change
@@ -49,7 +53,7 @@ function GameToggle({ fetchOrder, setOrder, setItems, gameIsStarted, setGameIsSt
 
     return (
         <>
-        {/* Renders buttons according to state */}
+        {/* Renders buttons according to game being started */}
         {gameIsStarted ? 
             <button 
             id="clockout" 

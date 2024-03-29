@@ -6,14 +6,14 @@ import React, { useState } from "react"
 import Timer from "./Timer"
 import Stats from "./Stats"
 
-function Header({ gameIsStarted, time, setTime, checkIsClosed, setCheckIsClosed, finalTotal, setFinalTotal, tip, setTip }) {
+function Header({ gameIsStarted, time, setTime, checkIsClosed, setCheckIsClosed, finalTotal, setFinalTotal, tip, setTip, gameRound }) {
 
     return(
         <>
             <div id="header-div">
                 <h1>Crafts Kitchen</h1>
                 <Timer gameIsStarted={gameIsStarted} time={time} setTime={setTime} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} />
-                <Stats finalTotal={finalTotal} tip={tip} checkIsClosed={checkIsClosed} gameIsStarted={gameIsStarted} />
+                <Stats finalTotal={finalTotal} tip={tip} checkIsClosed={checkIsClosed} gameIsStarted={gameIsStarted} gameRound={gameRound} />
             </div>
         </>
     )
