@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from "react";
 
-function OrderTicket({ gameIsStarted, order }) {
+function OrderTicket({ gameIsStarted, order, gameRound }) {
     const [orderObj, setOrderObj] = useState(null);
 
     // console.log(gameIsStarted);
@@ -21,7 +21,7 @@ function OrderTicket({ gameIsStarted, order }) {
 
     return (
         <div id="order-ticket">
-            <h4>Order</h4><hr/>
+            <h4>Order {gameRound > 0 && '#' + gameRound}</h4><hr/>
             <div id="order-items">
                 {gameIsStarted && orderObj &&
                         Object.keys(orderObj).map((category) => (

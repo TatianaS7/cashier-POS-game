@@ -9,18 +9,19 @@ function App() {
     const [gameIsStarted, setGameIsStarted] = useState(false);
     const [time, setTime] = useState(null);
     const [checkIsClosed, setCheckIsClosed] = useState(false);
-    const [finalTotal, setFinalTotal] = useState(0);
+    const [finalTotal, setFinalTotal] = useState(null);
     const [tip, setTip] = useState(0);
+    const [gameRound, setGameRound] = useState(0);
 
 
 
     return (
         <main>
-            <Header gameIsStarted={gameIsStarted} time={time} setTime={setTime} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} />
+            <Header gameIsStarted={gameIsStarted} time={time} setTime={setTime} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} gameRound={gameRound} />
 
             <div className='flex'>
-                <OrderTicket order={order} gameIsStarted={gameIsStarted} />
-                <POS order={order} setOrder={setOrder} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted} time={time} setTime={setTime} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} />
+                <OrderTicket order={order} gameIsStarted={gameIsStarted} gameRound={gameRound} />
+                <POS order={order} setOrder={setOrder} gameIsStarted={gameIsStarted} setGameIsStarted={setGameIsStarted} time={time} setTime={setTime} checkIsClosed={checkIsClosed} setCheckIsClosed={setCheckIsClosed} finalTotal={finalTotal} setFinalTotal={setFinalTotal} tip={tip} setTip={setTip} gameRound={gameRound} setGameRound={setGameRound} />
             </div>
         </main>
     )
