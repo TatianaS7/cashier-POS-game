@@ -3,7 +3,7 @@
   "scripts": {
     "client-dev": "parcel public/index.html --open",
     "build": "parcel build public/index.html",
-    "start": "concurrently \"npm run client-dev\" \"python server/app.py\""
+    "start": "concurrently \"npm run client-dev\" \"python3 server/app.py\""
   },
   "dependencies": {
     "axios": "^1.6.8",
