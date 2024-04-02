@@ -10,7 +10,7 @@ from pos_data import pos_system
 from _main_ import generateOrder
 
 # timer functions 
-from timerFunctions import startTimer, stopTimer
+# from timerFunctions import startTimer, stopTimer
 
 
 # Creates instance of Flask application
@@ -28,16 +28,16 @@ def generateOrderRoute():
     order = generateOrder()
     return jsonify(order)
 
-# Defines routes/function for timer
-@app.route('/start_timer', methods=['POST'])
-def start():
-    currentTime = startTimer()
-    return jsonify(currentTime) 
+# # Defines routes/function for timer
+# @app.route('/start_timer', methods=['POST'])
+# def start():
+#     currentTime = startTimer()
+#     return jsonify(currentTime) 
 
-@app.route('/stop_timer', methods=['POST'])
-def stop():
-    currentTime = stopTimer()
-    return jsonify(currentTime)
+# @app.route('/stop_timer', methods=['POST'])
+# def stop():
+#     currentTime = stopTimer()
+#     return jsonify(currentTime)
 
 
 
