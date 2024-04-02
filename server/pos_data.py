@@ -22,7 +22,7 @@ pos_system = {
             {'item': 'Buffalo Chicken Calzone', 'price': 16}, 
             {'item': 'Buffalo Chicken Calzone', 'price': 16}, 
             {'item': 'Jambalaya', 'price': 16}, 
-            {'item': 'Chicken Pot Pie', 'price': 20}
+            {'item': 'Chicken Pot Pie', 'price': 20},
             {'item': 'Chicken Pot Pie', 'price': 20}
         ],
         'sides': [
@@ -98,7 +98,7 @@ pos_system = {
             {'item': 'Fudge Brownie', 'price': 5}, 
             {'item': 'Vanilla Sundae', 'price': 5}, 
             {'item': 'Red Velvet Cake', 'price': 7},
-            {'item': 'Banana Split', 'price': 7}
+            {'item': 'Banana Split', 'price': 7},
             {'item': 'Vanilla Sundae', 'price': 5}, 
             {'item': 'Red Velvet Cake', 'price': 7},
             {'item': 'Banana Split', 'price': 7}
