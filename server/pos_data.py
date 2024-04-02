@@ -1,9 +1,12 @@
 pos_system = {
     'names': ['Avery', 'Melody', 'Rufus', 'Sabrina', 'Michael', 'Ellen', 'Dominic', 'Paige', 'Ashley', 'Ethan', 'Rubin', 'James', 'Vic', 'Junior', 'Tobias', 'Ace', 'Marco', 'Veronica', 'Chris', 'Anita', 'Loie', 'Maya', 'Nadia', 'Lola'],
+    'names': ['Avery', 'Melody', 'Rufus', 'Sabrina', 'Michael', 'Ellen', 'Dominic', 'Paige', 'Ashley', 'Ethan', 'Rubin', 'James', 'Vic', 'Junior', 'Tobias', 'Ace', 'Marco', 'Veronica', 'Chris', 'Anita', 'Loie', 'Maya', 'Nadia', 'Lola'],
     "menus": ['entrees', 'sides', 'beverages', 'desserts'],
     'menu_items': {
         'entrees': [
             {'item': 'Coconut Shrimp', 'price': 17},
+            {'item': 'Seafood Lasagna', 'price': 23},
+            {'item': 'Grilled Red Snapper', 'price': 32},
             {'item': 'Seafood Lasagna', 'price': 23},
             {'item': 'Grilled Red Snapper', 'price': 32},
             {'item': 'Cedar Plank Salmon', 'price': 32},
@@ -17,7 +20,9 @@ pos_system = {
             {'item': 'Birria Tacos', 'price': 14},
             {'item': 'Lamb Kebabs', 'price': 18},
             {'item': 'Buffalo Chicken Calzone', 'price': 16}, 
+            {'item': 'Buffalo Chicken Calzone', 'price': 16}, 
             {'item': 'Jambalaya', 'price': 16}, 
+            {'item': 'Chicken Pot Pie', 'price': 20}
             {'item': 'Chicken Pot Pie', 'price': 20}
         ],
         'sides': [
@@ -49,12 +54,18 @@ pos_system = {
             {'item': 'Apple Juice', 'price': 3},
             {'item': 'Cranberry Juice', 'price': 3},
             {'item': 'Piña Colada', 'price': 8},
+            {'item': 'Lemonade', 'price': 3}, 
+            {'item': 'Orange Juice', 'price': 3},
+            {'item': 'Apple Juice', 'price': 3},
+            {'item': 'Cranberry Juice', 'price': 3},
+            {'item': 'Piña Colada', 'price': 8},
             {'item': 'Frozen Strawberry Lemonade', 'price': 4},
             {'item': 'Mango Pineapple Smoothie', 'price': 6},
             {'item': 'Strawberry Banana Smoothie', 'price': 6}, 
             {'item': 'Coke', 'price': 3},
             {'item': 'Diet Coke', 'price': 3},
             {'item': 'Coke Zero', 'price': 3}, 
+            {'item': 'Sprite', 'price': 3}, 
             {'item': 'Sprite', 'price': 3}, 
             {'item': 'Root Beer', 'price': 3}, 
             {'item': 'Gingerale', 'price': 3}, 
@@ -64,14 +75,20 @@ pos_system = {
         'desserts': [
             {'item': 'Tiramisu', 'price': 7},
             {'item': 'Apple Pie', 'price': 5},
+            {'item': 'Tiramisu', 'price': 7},
+            {'item': 'Apple Pie', 'price': 5},
             {'item': 'Peach Cobbler', 'price': 7}, 
+            {'item': 'Bread Pudding', 'price': 6},
             {'item': 'Bread Pudding', 'price': 6},
             {'item': 'Strawberry Cheesecake', 'price': 7}, 
             {'item': 'Chocolate Milkshake', 'price': 7}, 
             {'item': 'Vanilla Milkshake', 'price': 7}, 
             {'item': 'Strawberry Milkshake', 'price': 7}, 
             {'item': 'Tres Leches', 'price': 7},
+            {'item': 'Strawberry Milkshake', 'price': 7}, 
+            {'item': 'Tres Leches', 'price': 7},
             {'item': 'Fried Oreos', 'price': 8},
+            {'item': 'Creme Brulee', 'price': 8},
             {'item': 'Creme Brulee', 'price': 8},
             {'item': 'Funnel Cake Fries', 'price': 8},
             {'item': 'Mango Sorbet', 'price': 5},
@@ -79,6 +96,9 @@ pos_system = {
             {'item': 'Melon Sorbet', 'price': 5},
             {'item': 'Tropical Punch Sorbet', 'price': 5},
             {'item': 'Fudge Brownie', 'price': 5}, 
+            {'item': 'Vanilla Sundae', 'price': 5}, 
+            {'item': 'Red Velvet Cake', 'price': 7},
+            {'item': 'Banana Split', 'price': 7}
             {'item': 'Vanilla Sundae', 'price': 5}, 
             {'item': 'Red Velvet Cake', 'price': 7},
             {'item': 'Banana Split', 'price': 7}
