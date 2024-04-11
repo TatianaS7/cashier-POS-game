@@ -14,7 +14,7 @@ from _main_ import generateOrder
 
 
 # Creates instance of Flask application
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public')
 CORS(app)
 
 
