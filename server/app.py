@@ -19,11 +19,11 @@ CORS(app)
 
 
 # Defines route/function to get data from pos_system module and return as JSON
-@app.route('/pos_system', methods=['GET'])
+@app.route('/api/pos_system', methods=['GET'])
 def getPOS():
     return jsonify(pos_system)
 
-@app.route('/generate_order', methods=['GET'])
+@app.route('/api/generate_order', methods=['GET'])
 def generateOrderRoute():
     order = generateOrder()
     return jsonify(order)
